@@ -1,4 +1,6 @@
 {
+    "name": "dietwater/dietwater",
+    "description": "DietWater Application",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",
@@ -91,6 +93,9 @@
             "./bin/console doctrine:database:create --no-interaction",
             "./bin/console doctrine:migrations:migrate  --no-interaction",
             "./bin/console doctrine:fixtures:load --no-interaction"
+        ],
+        "test": [
+            "./bin/phpunit"
         ]
     },
     "conflict": {
