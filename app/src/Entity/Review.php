@@ -5,12 +5,13 @@ namespace App\Entity;
 use App\Repository\ReviewRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * @ORM\Entity(repositoryClass=ReviewRepository::class)
  */
-class Review implements \JsonSerializable
+class Review implements JsonSerializable
 {
     public const SOURCE_AMAZON = 'amazon';
 
