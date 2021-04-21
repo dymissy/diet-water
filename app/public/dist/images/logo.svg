@@ -1,1 +1,3 @@
-<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient cx="33.3%" cy="43.394%" fx="33.3%" fy="43.394%" r="57.77%" id="a"><stop stop-color="#FF6C50" stop-opacity=".24" offset="0%"/><stop stop-color="#FF6C50" stop-opacity=".64" offset="51.712%"/><stop stop-color="#FF6C50" stop-opacity=".24" offset="100%"/></radialGradient></defs><circle cx="16" cy="16" r="16" fill="url(#a)" fill-rule="evenodd"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="138" height="145" viewBox="0 0 138 145">
+  <path id="Path_2159" data-name="Path 2159" d="M1029.517,80.12l4.973,51.789,48.1,20.3-47.667,20.711-4.148,52.2-34.792-38.905-50.567,12.018,51.393-45.16L944.59,108.748l50.98,10.818Z" transform="translate(-944.59 -80.12)" fill="#ffc107"/>
+</svg>

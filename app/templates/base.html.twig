@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Diet Water - The more you drink it, the less you weigh{% endblock %}</title>
+    <title>{% block title %}DietWater - The more you drink it, the less you weigh!{% endblock %}</title>
 
     {% block stylesheets %}
     <link href="https://fonts.googleapis.com/css?family=Heebo:400,700|Oxygen:700" rel="stylesheet">
@@ -22,8 +22,8 @@
             <div class="site-header-inner">
                 <div class="brand header-brand">
                     <h1 class="m-0">
-                        <a href="#">
-                            <img class="header-logo-image" src="dist/images/logo.svg" alt="Logo">
+                        <a href="{{ path('home') }}">
+                            <img class="header-logo-image" src="{{ asset('dist/images/logo.svg') }}" alt="DietWater">
                         </a>
                     </h1>
                 </div>
@@ -32,7 +32,7 @@
     </header>
 
     {% block body %}{% endblock %}
-    
+
     <footer class="site-footer">
         <div class="footer-particles-container">
             <canvas id="footer-particles"></canvas>
@@ -42,10 +42,8 @@
                 <div class="container-sm">
                     <div class="cta-inner section-inner">
                         <div class="cta-header text-center">
-                            <h2 class="section-title mt-0">Stay in the know</h2>
-                            <p class="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a document or visual presentation.</p>
                             <div class="cta-cta">
-                                <a class="button button-primary button-wide-mobile" href="#">Get early access</a>
+                                <a class="button button-primary button-wide-mobile" href="#">BUY NOW</a>
                             </div>
                         </div>
                     </div>
@@ -56,24 +54,10 @@
             <div class="container">
                 <div class="site-footer-inner">
                     <div class="brand footer-brand">
-                        <a href="#">
-                            <img src="dist/images/logo.svg" alt="Venus logo">
+                        <a href="{{ path('home') }}">
+                            <img src="dist/images/logo.svg" alt="DietWater">
                         </a>
                     </div>
-                    <ul class="footer-links list-reset">
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                        <li>
-                            <a href="#">About us</a>
-                        </li>
-                        <li>
-                            <a href="#">FAQ's</a>
-                        </li>
-                        <li>
-                            <a href="#">Support</a>
-                        </li>
-                    </ul>
                     <ul class="footer-social-links list-reset">
                         <li>
                             <a href="#">
@@ -100,7 +84,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="footer-copyright">&copy; 2018 Venus, all rights reserved</div>
+                    <div class="footer-copyright">&copy; {{ date() | date('Y') }} DietWater, all rights reserved</div>
                 </div>
             </div>
         </div>
