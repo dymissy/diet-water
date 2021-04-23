@@ -98,6 +98,10 @@
         ],
         "test": [
             "./bin/phpunit"
+        ],
+        "test-suite": [
+            "@fixtures",
+            "@test"
         ]
     },
     "conflict": {

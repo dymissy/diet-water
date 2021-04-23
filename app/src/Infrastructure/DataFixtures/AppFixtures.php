@@ -19,6 +19,7 @@ class AppFixtures extends Fixture
                     'source'      => Review::SOURCE_AMAZON,
                     'author'      => "User$i J*** S****",
                     'created_at'  => "2020-0$i-0$i",
+                    'imported_at' => "2021-04-01"
                 ]
             );
 
