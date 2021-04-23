@@ -1,20 +1,5 @@
 FROM php:8-fpm-alpine
 
-#RUN mkdir -p /usr/share/man/man1
-#RUN apt-get update && apt-get install -y \
-#    curl \
-#    vim \
-#    git \
-#    software-properties-common \
-#    bsd-mailx \
-#    libfreetype6-dev \
-#    libjpeg62-turbo-dev \
-#    libmcrypt-dev \
-#    libpng-dev \
-#    libxml2-dev \
-#    libzip-dev \
-#    unzip
-
 # persistent / runtime deps
 RUN apk add --no-cache \
 		acl \
@@ -55,11 +40,22 @@ RUN set -eux; \
 	\
 	apk del .build-deps
 
-#RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-#    && docker-php-ext-install -j$(nproc) gd bcmath soap intl pdo pdo_mysql zip
-
 #install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+
+# Chromium and ChromeDriver"
+ENV PANTHER_NO_SANDBOX 1
+# Not mandatory, but recommended"
+ENV PANTHER_CHROME_ARGUMENTS='--disable-dev-shm-usage'
+RUN apk add --no-cache chromium chromium-chromedriver
+
+# Firefox and geckodriver"
+#ARG GECKODRIVER_VERSION=0.29.0"
+#RUN apk add --no-cache firefox"
+#RUN wget -q https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER_VERSION/geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz; \\"
+#\ttar -zxf geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz -C /usr/bin; \\"
+#\trm geckodriver-v$GECKODRIVER_VERSION-linux64.tar.gz
 
 # settings
 RUN rm -rf /var/www/html
