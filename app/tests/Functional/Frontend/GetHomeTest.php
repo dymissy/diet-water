@@ -4,6 +4,7 @@ namespace App\Tests\Functional\Frontend;
 
 
 use App\Tests\BrowserTestCase;
+use Facebook\WebDriver\WebDriverDimension;
 
 class GetHomeTest extends BrowserTestCase
 {
@@ -14,8 +15,6 @@ class GetHomeTest extends BrowserTestCase
     {
         $client = static::createPantherClient();
         $crawler = $client->get('/');
-
-
 
         $this->assertSelectorTextContains('h1.hero-title', 'DietWater');
         $this->assertSelectorTextContains('p.hero-paragraph', 'The first water that makes you lose weight.');
@@ -56,5 +55,8 @@ class GetHomeTest extends BrowserTestCase
 
         //"Load More" button is no longer available
         $this->assertSelectorIsNotVisible('.reviews-more');
+
+        //save screenshot
+        $this->takeScreenshot($client, 'homepage');
     }
 }
