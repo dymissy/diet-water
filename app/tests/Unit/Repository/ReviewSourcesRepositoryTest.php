@@ -26,8 +26,16 @@ class ReviewSourcesRepositoryTest extends TestCase
     /**
      * @test
      */
-    public function shouldReturnSpecificSourc(): void
+    public function shouldReturnSpecificSource(): void
     {
         $this->assertEquals('https://www.amazon.it/product', $this->repository->find(Review::SOURCE_AMAZON));
+    }
+
+    /**
+     * @test
+     */
+    public function shouldReturnNullWhenSourceDoesNotExist(): void
+    {
+        $this->assertNull($this->repository->find('foobar'));
     }
 }
