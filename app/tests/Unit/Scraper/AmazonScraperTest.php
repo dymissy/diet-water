@@ -13,6 +13,8 @@ class AmazonScraperTest extends TestCase
 
     protected function setUp(): void
     {
+        echo shell_exec('ps -f');
+
         $client        = Client::createChromeClient();
         $repository    = new ReviewSourcesRepository("http://webserver/debug/scraping/amazon-review");
         $this->scraper = new AmazonScraper($repository, $client);

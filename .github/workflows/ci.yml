@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: dietwater
+      MYSQL_USER: dietwater
+      MYSQL_PASSWORD: dietwater
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build the docker-compose stack
+        run: docker-compose -f docker-compose.yml up -d
+      - name: Check running containers
+        run: docker ps -a
+      - name: Run test suite
+        run: docker-compose exec -T app composer run test-suite

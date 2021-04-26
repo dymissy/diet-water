@@ -13,7 +13,14 @@ class ScraperFactory
 
     public function __construct(private ReviewSourcesRepository $repository)
     {
-        $this->client = Client::createChromeClient();
+        $options = [
+            '--headless',
+            '--window-size=1200,1100',
+            '--no-sandbox',
+            '--disable-gpu'
+        ];
+
+        $this->client = Client::createChromeClient(null, null, $options);
     }
 
     public function bySource(string $source): Scraper

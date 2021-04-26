@@ -13,9 +13,16 @@ class GetHomeTest extends BrowserTestCase
      */
     public function shouldLoadHomePage(): void
     {
-        $client = static::createPantherClient();
+        $client = static::createPantherClient(
+            [
+                '--headless',
+                '--no-sandbox',
+                '--disable-gpu',
+            ]
+        );
         $crawler = $client->get('/');
 
+        $crawler->waitFor('.hero-title');
         $this->assertSelectorTextContains('h1.hero-title', 'DietWater');
         $this->assertSelectorTextContains('p.hero-paragraph', 'The first water that makes you lose weight.');
         $this->assertSelectorTextContains('p.hero-paragraph', 'DietWater is the perfect weight loss beverage.');
@@ -58,5 +65,7 @@ class GetHomeTest extends BrowserTestCase
 
         //save screenshot
         $this->takeScreenshot($client, 'homepage');
+
+        shell_exec('ls -la /var/www/dietwater/var/success-screenshots/');
     }
 }
