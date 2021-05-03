@@ -3,8 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\ReviewRepository;
+use App\Scraper\ValueObject\ImportedReview;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use JetBrains\PhpStorm\Pure;
 use JsonSerializable;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
@@ -88,6 +90,20 @@ class Review implements JsonSerializable
         $review->author = $data->get('author');
         $review->createdAt = new DateTimeImmutable($data->get('created_at'));
         $review->importedAt = new DateTimeImmutable($data->get('imported_at'));
+
+        return $review;
+    }
+
+    public static function fromImportedReview(ImportedReview $importedReview): self
+    {
+        $review = new self();
+        $review->title = $importedReview->title;
+        $review->content = $importedReview->content;
+        $review->rate = $importedReview->rate;
+        $review->source = $importedReview->source;
+        $review->author = $importedReview->author;
+        $review->createdAt = $importedReview->createdAt;
+        $review->importedAt = $importedReview->importedAt;
 
         return $review;
     }
