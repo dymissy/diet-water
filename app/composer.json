@@ -29,6 +29,7 @@
         "symfony/mime": "5.2.*",
         "symfony/monolog-bundle": "^3.1",
         "symfony/notifier": "5.2.*",
+        "symfony/panther": "^1.0",
         "symfony/process": "5.2.*",
         "symfony/property-access": "5.2.*",
         "symfony/property-info": "5.2.*",
@@ -45,6 +46,7 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "dbrekelmans/bdi": "^0.3.0",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/browser-kit": "^5.2",
         "symfony/css-selector": "^5.2",
@@ -88,6 +90,12 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
+        "prepare": [
+            "mkdir -p var/error-screenshots",
+            "mkdir -p var/success-screenshots",
+            "rm -rf var/error-screenshots/*",
+            "rm -rf var/success-screenshots/*"
+        ],
         "fixtures": [
             "./bin/console doctrine:database:drop --if-exists --force",
             "./bin/console doctrine:database:create --no-interaction",
@@ -96,6 +104,11 @@
         ],
         "test": [
             "./bin/phpunit"
+        ],
+        "test-suite": [
+            "@prepare",
+            "@fixtures",
+            "@test"
         ]
     },
     "conflict": {

@@ -28,7 +28,7 @@ class GetReviewsListTest extends ApiTestCase
                 'source' => "amazon",
                 'author' => "User5 J*** S****",
                 'created_at' => "2020-05-05T00:00:00+00:00",
-                'imported_at' => "2021-04-21T11:34:31+00:00",
+                'imported_at' => "2021-04-01T00:00:00+00:00",
             ],
             $response[0]
         );
@@ -41,7 +41,7 @@ class GetReviewsListTest extends ApiTestCase
                 'source' => "amazon",
                 'author' => "User4 J*** S****",
                 'created_at' => "2020-04-04T00:00:00+00:00",
-                'imported_at' => "2021-04-21T11:34:31+00:00",
+                'imported_at' => "2021-04-01T00:00:00+00:00",
             ],
             $response[1]
         );

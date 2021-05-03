@@ -5,7 +5,7 @@ up:
 	docker-compose up -d
 
 ssh:
-	docker exec -u www-data -it dietwater_app /bin/bash
+	docker-compose exec -u www-data app sh
 
 ssh-root:
-	docker exec -it dietwater_app /bin/bash
+	docker-compose exec app sh

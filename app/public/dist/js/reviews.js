@@ -56,7 +56,7 @@
         reviewsNode.innerHTML = reviews.reduce((content, review) => {
             const date = new Date(review.created_at);
 
-            const reviewContent = `<div class="review-body">
+            const reviewContent = `<div class="review-${review.id} review-body">
                 <h5>${review.title}</h5>
                 <p><em>${review.author} on ${date.toLocaleDateString()} said:</em><br> ${review.content}</p>
                 
