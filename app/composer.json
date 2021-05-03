@@ -103,7 +103,7 @@
             "./bin/console doctrine:fixtures:load --no-interaction"
         ],
         "test": [
-            "./bin/phpunit"
+            "./bin/phpunit --testdox"
         ],
         "test-suite": [
             "@prepare",
